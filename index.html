@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Grade Calculator</title>
+   <style>
+     body{
+         background-color: #33d9b2;
+     }
+    .mainhead{
+        text-align: center;
+        color: black;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-weight: bolder;
+        font-size: 1.5rem;
+    }
+    .container {
+    display: flex;
+    flex-direction: column;
+    padding: 23px;
+    width: 620px;
+    justify-content: center;
+    align-items: center;
+    margin: -100px auto;
+    background-color: black;
+    height: 500px;
+    border: 1px solid red;
+    border-radius: 12px;
+}
+.container h1{
+    color: white;
+}
+h2{
+   text-align: center;
+   margin: 150px auto;
+}
+#btn{
+    padding: 7px;
+    margin: 11px 31px;
+    background-color: black;
+    color: white;
+    outline: none;
+    font-weight: bolder;
+
+}
+#btn:hover{
+   cursor: pointer;
+  color: red;
+}
+.inp{
+    margin: 5px;
+    
+    background-color: black;
+    border-bottom: 2px solid white;
+    color: white;
+}
+input {
+    background-color: transparent;
+    border: 0px solid;
+    height: 20px;
+    width: 160px;
+    color: #CCC;
+}
+::placeholder{
+    color: gray;
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+   .data:focus{
+     border-bottom-color: black;
+   }   
+   
+  
+   .data{
+       text-align: center;
+       font-size: 1.2rem;
+        }
+        p{
+            font-size: 30px;
+            color: red;
+            text-align: center;
+            border: 2px solid gold;
+        }
+   </style>
+</head>
+<body>
+    <div class="mainhead"><h1>Welcome to my percent and Grade Calculator</h1></div>
+    <h2>This is the 12th class grade Calculator</h2>
+    <div class="container">
+        <h1>Student Grade Calculator</h1>
+        <form action="#">
+            <div class="data"><input type="text" placeholder=" Enter Physics Marks" id="physics" class="inp"></div>
+           <div class="data"><input type="text" placeholder="Enter Chemistry Marks" id="chem" class="inp"></div>
+            <div class="data"><input type="text" placeholder="Enter Maths Marks" id="math" class="inp"> </div>
+           <div class="data"><input type="text" placeholder="Enter English Marks" id="eng" class="inp"> </div>
+            <div class="data"><input type="text" placeholder="Enter Physical E. Marks" id="PE" class="inp"></div>
+            <div class="btn"><input type="button" value="ShowResults" onclick="calcy()" id="btn"></div>
+        </form>
+
+        <div>
+            <p id="showdata"></p>
+           </div>
+
+        </div>
+
+        
+
+    <script>
+  let calcy = () => {
+      let physics = document.getElementById('physics').value;
+      let chem = document.getElementById('chem').value;
+      let math = document.getElementById('math').value;
+      let eng = document.getElementById('eng').value;
+      let PE = document.getElementById('PE').value;
+        let grades = " ";
+      let total = parseFloat(physics) + parseFloat(chem) + parseFloat(math) + parseFloat(eng) + parseFloat(PE);
+     alert(total);
+      let perc = (total/500)*100;
+      alert(perc);
+     
+      if(perc<=100 && perc>90){grades = 'A+';}
+      else if(perc<=90 && perc>80){grades = 'A';}
+      else if(perc<=80 && perc>70){grades = 'B+';}
+      else if(perc<=70 && perc>60){grades = 'B';}
+      else if(perc<=60 && perc>50){grades = 'C+';}
+      else if(perc<=50 && perc>40){grades = 'C';}
+      else if(perc>=33){grades = 'D';}
+      else {grades = 'F';}
+
+      if(perc>33){
+        document.getElementById('showdata').innerHTML = `Out of 500 your Total is ${total}.<br> Percentage is ${perc}%. <br> Your grade is ${grades}. <br> You are PASS.`
+      }
+      else{
+        document.getElementById('showdata').innerHTML = `Out of 500 your Total is ${total}.<br> Percentage is ${perc}%. <br> Your grade is ${grades}. <br> You are FAIL.`
+      }
+    }
+     </script>
+</body>
+</html>
